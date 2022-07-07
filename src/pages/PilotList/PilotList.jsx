@@ -4,7 +4,9 @@ const PilotList = ({pilots}) => {
   return (
     <>
       {pilots.map(pilot =>
-        <Pilot pilot={pilot}/>
+        <div className='pilot-divs'>
+          <Pilot pilot={pilot}/>
+        </div>
       )}
     </>
   );

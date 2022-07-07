@@ -6,7 +6,6 @@ import PilotList from "../PilotList/PilotList";
 const StarshipDetails = () => {
   const [starshipDetails, setStarshipDetails] = useState({})
   const location = useLocation()
-  console.log(location.state)
 
   useEffect(() => {
     const fetchDetails = async () => {
@@ -17,7 +16,7 @@ const StarshipDetails = () => {
   }, [location.state.starship.url])
 
   return (
-    <div className='all-starships'>
+    <div className='starship-card'>
       {starshipDetails.name ?
       <>
         <div className='starship-details'>
@@ -25,14 +24,15 @@ const StarshipDetails = () => {
           <h1>MODEL: {starshipDetails.model}</h1>
           {starshipDetails.pilots.length ?
           <>
-            <PilotList pilots={starshipDetails.pilots}/>
+            <h1>PILOTS:</h1>
+            <PilotList className='pilots' pilots={starshipDetails.pilots}/>
           </>
           :
           <>
             <h2>This ship has no pilots.</h2>
           </>
           }
-          <Link to='/'>
+          <Link className='return-button' to='/'>
             RETURN
           </Link>
         </div>
