@@ -15,15 +15,23 @@ const AllStarships = () => {
 
   return (
     <>
-      <div>
-        <h1>All Starships</h1>
-        <div className='all-starships'>
+      <div className='all-starships'>
+        {starships.length ?
+        <>
           {starships.map(starship =>
             <Link to='/starship' state={{starship}} key={starship.name}>
-              {starship.name}
+              <div className="starship-div">
+                {starship.name}
+              </div>
             </Link>
           )}
-        </div>
+        </>
+        :
+        <>
+        <p>Loading starships...</p>
+        </>
+        }
+
       </div>
     </>
   );
